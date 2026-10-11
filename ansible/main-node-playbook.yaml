@@ -1,0 +1,7 @@
+- name: Install k3s
+  hosts: main
+  tasks:
+    - name: Get and install k3s server
+      ansible.builtin.shell:
+        cmd: curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--flannel-backend none --token $K3S_TOKEN" sh -s -
+      become: yes
